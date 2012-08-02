@@ -1,0 +1,9 @@
+<script src="../infrastructure/decodeFileInfo.js"></script>
+<script>
+  var fileName = "The.Big.Bang.Theory.S04E08.The.21-second.Excitation.HDTV.XviD-FQM.avi";
+  var result = decodeFileInfo(fileName);
+  document.write("filen: <b>" + fileName + "</b><br>");
+  document.write("title: <b>" + result.title + "</b><br>");
+  document.write("series: <b>" + result.series + "</b><br>");
+  document.write("ep: <b>" + result.ep + "</b><br>");
+</script>

@@ -1,0 +1,256 @@
+html, body { 
+  padding: 0px; 
+  margin: 0px;
+  height: 100%;
+}
+
+body {
+  background: #729fcf;
+  font-family: arial;
+  color: white; 
+  font-weight: bold;
+  font-size: 12pt;
+}
+
+#wrapper, #library {
+  width: 900px;
+  margin: 0px auto;
+}
+
+#header, #library {
+  word-spacing: -4px;
+}
+
+#header {
+  background: #204a87;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+  position: relative;
+}
+
+#library {
+  margin: 0px auto;
+  position: absolute;
+  top: 34px;
+  bottom: 34px;
+  left: 0px; right: 0px;
+}
+
+.row {
+  text-align: right;
+  margin-bottom: 4px;
+  cursor: pointer; 
+  height: 30px;
+  padding: 0px 10px;   
+}
+
+.cell {
+  text-align: left;
+  display: inline-block;
+  word-spacing: normal;
+  padding: 4px 0px;
+}
+
+.cell:not(.rowTitle) {
+  text-align: center;
+  width: 105px;
+}
+
+.cell.buttons {
+  width: 180px;
+}
+
+.rowTitle {
+  position: absolute; 
+  display: block;
+}
+
+.title {
+  position: relative;
+  bottom: 4px;
+}
+
+.fileRow, .folderRow, .uploadRow {
+  border-radius: 4px;
+}
+
+input {
+  border: none;
+  border-radius: 4px;
+  position: relative;
+  top: -1px;
+}
+
+input[type=submit], input[type=button] {
+  background: white;
+  font-weight: bold;
+  color: black;
+  width: 80px;
+}
+
+.uploadControls {
+  text-align: right;
+}
+
+.rowTitle input { width: 460px; }
+.ep input { margin-left: 4px; width: 25px; }
+
+.fileRow { background: #4584d6; }
+.folderRow { background: #3465a4; }
+.uploadRow { background: #fcaf3e; } 
+
+.folder:first-of-type {
+  min-height: 100%;
+  padding-bottom: 40px;
+}
+
+.folder {
+  padding-left: 8px;
+  margin-left: 4px;
+  border-left: dashed #fff 2px;
+  border-radius: 4px;
+  min-height: 30px;  
+}
+
+.folder .folder:contains(.row) {
+  min-height: 0px;
+}
+
+.folder.fileHovering {
+  border-color: red;
+}
+
+#library .row.highlight {
+  background: #a40000;
+}
+
+#footer {
+  background: #204a87;
+  height: 36px;
+  
+  padding: 4px;
+  padding-bottom: 0px;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  
+  position: fixed;
+  bottom: 0px;
+  width: 892px;  
+  z-index: 1;
+}
+
+#footer a {
+  color: white;
+  text-decoration: none;
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  margin-left: 10px;
+  background-repeat: no-repeat;
+}
+
+.fileIcon { background: url(gfx/file.png); }
+.folderIcon { background: url(gfx/folder.png); }
+.folderOpenIcon { background: url(gfx/folderOpen.png); }
+#addFolderButton { background: url(gfx/addFolder.png); }
+#deleteFileButton { background: url(gfx/deleteFile.png); }
+#editFileButton { background: url(gfx/editFile.png); }
+#playFileButton { background: url(gfx/playFile.png); }
+#uploadFileButton { background: url(gfx/upload.png); }
+#downloadFileButton { background: url(gfx/download.png); }
+.folderIcon, .folderOpenIcon, .fileIcon {
+  display: inline-block;
+  width: 20px; height: 20px;
+}
+
+.dropForm input[type=file] { 
+  display: block; 
+  position: fixed;
+  top: 0px; bottom: 0px; 
+  left: 0px; right: 0px;
+  opacity: 0;
+  z-index: 2;
+}
+
+.dropForm input[type=file].hidden {
+  height: 0px;
+  width: 0px;
+}
+
+#logo {
+  position: absolute;
+  font-weight: bold;
+  font-size: 18pt;
+  top: 8px;
+  right: 16px;
+}
+
+#logo b {
+  color: red;
+}
+
+.windowFrame {
+  background: rgba(0,0,0,0.7);
+  position: fixed;
+  left: 0px; right: 0px;
+  top: 0px; bottom: 0px;
+  z-index: 3;
+}
+
+.window {
+  position: relative;
+  background: #204a87;
+  border-radius: 8px;
+  width: 500px;
+  margin: 120px auto;
+  padding: 20px;
+  height: 160px;
+}
+
+.window h1, .window h2 {
+  margin: 0px; padding: 0px;
+}
+
+.window h1 {
+  font-size: 110%;
+}
+
+.window h2 {
+  font-size: 90%;
+  font-weight: normal;
+}
+
+#progressBar {
+  position: absolute;
+  top: 120px;
+  left: 20px; right: 20px;
+  height: 30px;
+  border: solid white 1px;
+  overflow: hidden;
+}
+
+#usageBar {
+  height: 2px;
+  position: absolute;
+  left: 0px; right: 0px;
+  display: none;
+}
+
+#usageBar .usage {
+  background: white;
+  opacity: 0.7;
+  height: 100%;
+  border-bottom-right-radius: 2px;
+}
+
+#progressBar .progress {
+  background: #a40000;
+  height: 18px;
+  text-align: center;
+  overflow: hidden;
+  padding: 6px 0px;
+}
+
+.templates, iframe {
+  display: none;
+}

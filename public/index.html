@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>uVid</title>
+    <link rel="stylesheet" href="style/layout.css">
+    <script type="text/javascript" src="scripts/jquery-1.4.2.js"></script>
+    <script type="text/javascript" src="scripts/container.js"></script>
+    <script type="text/javascript" src="scripts/domain/folder.js"></script>
+    <script type="text/javascript" src="scripts/domain/folderBox.js"></script>    
+    <script type="text/javascript" src="scripts/domain/file.js"></script>
+    <script type="text/javascript" src="scripts/infrastructure/decodeFileInfo.js"></script>
+    <script type="text/javascript" src="scripts/infrastructure/folderDialog.js"></script>    
+    <script type="text/javascript" src="scripts/infrastructure/inputHandler.js"></script>
+    <script type="text/javascript" src="scripts/infrastructure/fileDialog.js"></script>
+    <script type="text/javascript" src="scripts/infrastructure/progressDialog.js"></script>
+    
+  </head>
+  <body>
+    <div id="wrapper">
+      <div id="header" class="row">
+        <div id="usageBar"><div class="usage"></div></div>        
+        <div class="rowTitle cell">Title</div>
+        <div class="ep cell">Ep.</div>
+        <div class="lastView cell">Last&nbsp;View</div>
+        <div class="length cell">Length</div>
+      </div>
+      <div id="library"></div>
+      <div id="footer">
+        <a id="addFolderButton" title="Add Folder" href="#"></a>
+        <a id="editFileButton" title="Edit" href="#"></a>
+    		<a id="uploadFileButton" title="Upload File" href="#"></a>        
+        <a id="deleteFileButton" title="Delete" href="#"></a>
+        <a id="playFileButton" title="Play File" href="#"></a>
+        <a id="downloadFileButton" title="Download File" href="#"></a>
+        <span id="logo">u<b>V</b>id</span>
+      </div>
+    </div>
+    
+    <div id="progressFrame" class="windowFrame" style="display: none;">
+      <div id="progressDialog" class="window">
+        <h1>Uploading...</h1>
+        <h2>Please do not close this window</h2>
+        <div id="progressBar">
+          <div class="progress" style="width:0%">0%</div>
+        </div>
+      </div>
+    </div>      
+    <!-- Templates -->
+    <div class="templates">
+      <div class="row folderRow" id="folderTemplate">
+        <div class="rowTitle cell">
+          <span class="icon folderIcon"></span>
+          <span class="title"></span>
+        </div>
+      </div>
+      
+      <div class="row fileRow" id="fileTemplate">
+        <div class="rowTitle cell">
+          <span class="icon fileIcon"></span>
+          <span class="title"></span>
+        </div>
+        <div class="ep cell"></div>
+        <div class="lastView cell"></div>
+        <div class="length cell"></div>
+      </div>      
+      
+      <div class="row uploadRow" id="uploadFormRow">
+        <div class="rowTitle cell">
+          <span class="icon fileIcon"></span>
+          <span class="title"><input type="text" /></span>
+        </div>
+        <div class="ep cell">
+          <input type="hidden" />
+         S<input type="text" class="season" />
+         E<input type="text" class="ep" />
+        </div>
+        <div class="lastView cell">-</div>
+        <div class="length cell">-</div>
+      </div>
+      
+      <div id="uploadForm" class="uploadForm">
+        <div class="uploadTitle"></div>
+        <div class="uploadRows"></div>
+        <div class="uploadControls">
+          <input type="button" value="Cancel" class="cancelBtn" />
+          <input type="submit" value="Upload" />
+        </div>
+      </div>
+      
+      <div id="folderBoxTemplate" class="folder">
+        <form class="dropForm" action="/upload" method="post" enctype="multipart/form-data">
+          <input type="hidden" name="parentId" />
+          <input type="file" multiple="multiple" name="files" />
+        </form>
+      </div>
+      
+      <form id="editFileTemplate">
+        <div class="row uploadRow">
+          <div class="rowTitle cell">
+            <span class="icon fileIcon"></span>
+            <span class="title"><input type="text" name="title" /></span>
+          </div>
+          <div class="ep cell">
+            <input type="hidden" />
+           S<input type="text" class="season" name="season" />
+           E<input type="text" class="ep" name="ep" />
+          </div>
+          <div class="lastView cell"></div>
+          <div class="length cell"></div>
+        </div>
+        <div class="uploadControls">
+          <input type="button" value="Cancel" class="cancelBtn" />
+          <input type="submit" value="Submit" />
+        </div>
+      </form>
+      
+      <form class="row uploadRow" id="createFolderRow">
+        <div class="rowTitle cell">
+          <span class="icon fileIcon"></span>
+          <span class="title"><input type="text" name="newFolderName" /></span>
+        </div>
+        <div class="cell buttons">
+          <input type="button" class="cancel" value="Cancel" />
+          <input type="submit" class="submit" value="Create" />          
+        </div>
+      </form>
+      
+      <form class="row uploadRow" id="editFolderTemplate">
+        <div class="rowTitle cell">
+          <span class="icon fileIcon"></span>
+          <span class="title"><input type="text" name="title" /></span>
+        </div>
+        <div class="cell buttons">
+          <input type="button" class="cancelBtn" value="Cancel" />
+          <input type="submit" class="submit" value="Submit" />          
+        </div>
+      </form>      
+    </div>    
+    <!-- End Templates -->        
+    <iframe id="uploadTarget" name="uploadTarget"></iframe>
+  </body>
+</html>
